@@ -51,14 +51,6 @@ class Hotel(Resource):
        
         dados = Hotel.argumentos.parse_args()
         
-        # novoHotel = {
-        #     'hotel_id': hotel_id,
-        #     'nome': dados['nome'],
-        #     'estrelas': dados['estrelas'],
-        #     'diaria': dados['valorDiaria'],
-        #     'cidade' : dados['cidade']
-        # }
-        
         novoHotel = {'hotel_id' : hotel_id, **dados}
         
         hoteis.append(novoHotel)

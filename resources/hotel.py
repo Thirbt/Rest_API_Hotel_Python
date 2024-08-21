@@ -48,23 +48,15 @@ class Hotel(Resource):
         return {'message' : 'Hotel not Found.'}, 404 #not found
     
     def post(self, hotel_id):
-       
         dados = Hotel.argumentos.parse_args()
-        
         novoHotel = {'hotel_id' : hotel_id, **dados}
-        
         hoteis.append(novoHotel)
-        
         return novoHotel, 201 #created
     
     def put(self, hotel_id):
-        
         dados = Hotel.argumentos.parse_args()
-        
         novoHotel = {'hotel_id': hotel_id, **dados}
-        
         hotel = Hotel.findHotel(hotel_id)
-        
         if hotel:
             hotel.update(novoHotel)
             return novoHotel, 200 #OK
